@@ -114,4 +114,40 @@ const result= nums
 const result1 = products
     .filter(p=>p.price<100)   
     .reduce((tots , p)=>tots+p.price,0);            
-console.log(result1); 
+console.log(result1);
+
+
+
+function sumAll(...numbers) {
+    return numbers.reduce((acc, n) => acc + n, 0);
+}
+console.log(sumAll(1, 2, 3, 4)); // 10 — any number of arguments collected into `numbers` array
+
+
+const point = { x: 10, y: 20 };
+const {x,y}=point;
+console.log(x+y);
+
+const arr1 = [1, 2, 3]; 
+const arr2 = [4, 5, 6];
+const arr3=[...arr1,...arr2];
+console.log(arr3);
+
+
+/*function makeFullName(...parts) {
+    console.log(parts);
+    console.log( `${parts.firstName} ${parts.middleName} ${parts.lastName}`);
+}
+const parts = [
+    "firstName"= "Prakruthi",
+    "middleName"="Rao",
+    "lastName"="Kanginaya",
+];
+console.log(makeFullName(parts)); */
+
+function makeFullName(...parts) {
+  return parts.join(" ");
+}
+
+console.log(makeFullName("Prakruthi", "Rao"));
+console.log(makeFullName("Prakruthi", "Middle", "Rao"));
