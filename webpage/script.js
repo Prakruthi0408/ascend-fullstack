@@ -91,3 +91,27 @@ console.log(isPrime(7));
 console.log(isPrime(8));
 console.log(isPrime(2));
 console.log(isPrime(1));
+
+const nums = [3, 7, 2, 9, 4, 6];
+
+const newfilt=nums.filter(p=>p>5);
+console.log(newfilt);
+
+const newmap=nums.map(p=>p*p); 
+console.log(newmap);
+
+const result= nums
+.filter(p=>p<100)
+.reduce((tots,p)=>tots+p,0);
+ console.log(result);
+
+ const products = [
+    { name: "Pen", price: 10 },
+    { name: "Notebook", price: 50 },
+    { name: "Bag", price: 500 }
+];
+
+const result1 = products
+    .filter(p=>p.price<100)   
+    .reduce((tots , p)=>tots+p.price,0);            
+console.log(result1); 
