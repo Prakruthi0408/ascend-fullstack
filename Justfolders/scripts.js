@@ -1,0 +1,153 @@
+function makeCounter() {
+    let count = 0;
+    return function() {
+        count = count + 1;
+        return count;
+    };
+}
+
+const counter1 = makeCounter();
+console.log(counter1());
+console.log(counter1());
+console.log(counter1());
+
+const counter2 = makeCounter();
+console.log(counter2());
+
+// Variables
+const name1 = "Prakruthi";
+let age1 = 26;
+
+console.log(name1, age1);
+
+// const prevents reassignment
+age1 = 27;  // fine, since age was declared with let
+console.log(age1);
+
+// Type checking
+console.log(typeof name1);    // "string"
+console.log(typeof age1);     // "number"
+console.log(typeof true);    // "boolean"
+
+// Coercion examples — run these and see for yourself
+console.log("5" + 3);        
+console.log("5" - 3);        
+console.log(5 == "5");       
+console.log(5 === "5");
+
+// Function declaration
+function multiply(a, b) {
+    return a * b;
+}
+console.log(multiply(4, 5));
+
+// Function expression
+const divide = function(a, b) {
+    return a / b;
+};
+console.log(divide(10, 2));
+
+// Arrow function, full syntax
+const subtract = (a, b) => {
+    return a - b;
+};
+console.log(subtract(10, 3));
+
+// Arrow function, shorthand (implicit return)
+const add = (a, b) => a + b;
+console.log(add(3, 4));
+
+// Default parameters (same idea as Python's default args)
+const power = (base, exponent = 2) => base ** exponent;
+console.log(power(5));       // uses default exponent
+console.log(power(5, 3));    // overrides default
+
+// Template literals — JS's version of Python's f-strings
+const name = "Prakruthi";
+const age = 26;
+console.log(`Hello, ${name}. You are ${age} years old.`);
+
+
+const even = (n) => n%2===0;
+
+const welcome= (names, greeting = "Hello") => `${greeting} ${names}!`;
+ 
+
+function isPrime(x) {
+    let count = 0;
+    for (let i = 2; i < x; i++) {
+        if (x % i === 0) {
+            count = count + 1;
+        }
+    }
+    if (count === 0 && x > 1) {
+        return "Prime number";
+    } else {
+        return "Not Prime";
+    }
+}
+
+console.log(isPrime(7));
+console.log(isPrime(8));
+console.log(isPrime(2));
+console.log(isPrime(1));
+
+const nums = [3, 7, 2, 9, 4, 6];
+
+const newfilt=nums.filter(p=>p>5);
+console.log(newfilt);
+
+const newmap=nums.map(p=>p*p); 
+console.log(newmap);
+
+const result= nums
+.filter(p=>p<100)
+.reduce((tots,p)=>tots+p,0);
+ console.log(result);
+
+ const products = [
+    { name: "Pen", price: 10 },
+    { name: "Notebook", price: 50 },
+    { name: "Bag", price: 500 }
+];
+
+const result1 = products
+    .filter(p=>p.price<100)   
+    .reduce((tots , p)=>tots+p.price,0);            
+console.log(result1);
+
+
+
+function sumAll(...numbers) {
+    return numbers.reduce((acc, n) => acc + n, 0);
+}
+console.log(sumAll(1, 2, 3, 4)); // 10 — any number of arguments collected into `numbers` array
+
+
+const point = { x: 10, y: 20 };
+const {x,y}=point;
+console.log(x+y);
+
+const arr1 = [1, 2, 3]; 
+const arr2 = [4, 5, 6];
+const arr3=[...arr1,...arr2];
+console.log(arr3);
+
+
+/*function makeFullName(...parts) {
+    console.log(parts);
+    console.log( `${parts.firstName} ${parts.middleName} ${parts.lastName}`);
+}
+const parts = [
+    "firstName"= "Prakruthi",
+    "middleName"="Rao",
+    "lastName"="Kanginaya",
+];
+console.log(makeFullName(parts)); */
+
+function makeFullName(...parts) {
+  return parts.join(" ");
+}
+
+console.log(makeFullName("Prakruthi", "Rao"));
+console.log(makeFullName("Prakruthi", "Middle", "Rao"));
