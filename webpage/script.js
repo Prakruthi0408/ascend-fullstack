@@ -33,3 +33,30 @@ const navLinks = document.querySelector(".nav-links");
 navLinks.addEventListener("click", function(event) {
     console.log(event.target.textContent);   // not .textContent.target — fix this too
 });
+
+document.querySelector(".navbar").addEventListener("click", function() {
+    console.log("Navbar (parent) was clicked");
+});
+
+document.querySelector(".nav-links").addEventListener("click", function() {
+    console.log("Nav-links (child) was clicked");
+});
+
+function scopeDemo() {
+    if (true) {
+        let insideBlock = "block scoped";
+        var insideFunction = "function scoped";
+    }
+    console.log(insideFunction);   // works
+    // console.log(insideBlock);   // would ERROR if uncommented
+}
+scopeDemo();
+
+// Hoisting demo
+console.log(typeof hoistedVar);    // "undefined" - declaration hoisted
+var hoistedVar = "I exist now";
+
+function early() {
+    console.log("Called before my definition appears in the file!");
+}
+early();   // works fine - function declarations are fully hoisted
